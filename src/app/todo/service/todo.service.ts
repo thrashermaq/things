@@ -24,11 +24,11 @@ export class TodoService {
   }
 
   updateTodo(todo: Todo): Promise<void> {
-    return this.firestore.doc(this.path + '/' + todo.id).update(todo);
+    return this.firestore.doc<Todo>(this.path + '/' + todo.id).update(todo);
   }
 
   createTodo(todo: Todo): Promise<DocumentReference> {
-    return this.firestore.collection(this.path).add(todo);
+    return this.firestore.collection<Todo>(this.path).add({...todo});
   }
 
 }
