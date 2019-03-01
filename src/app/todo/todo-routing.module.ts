@@ -1,6 +1,6 @@
-import {TodoListComponent} from "./todo-list/todo-list.component";
-import {RouterModule, Routes} from "@angular/router";
-import {NgModule} from "@angular/core";
+import {TodoListComponent} from './todo-list/todo-list.component';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 
 const routes: Routes = [
   {
@@ -13,4 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TodoRoutingModule { }
+export class TodoRoutingModule {
+}
