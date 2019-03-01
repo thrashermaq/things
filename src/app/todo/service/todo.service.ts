@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore, DocumentReference} from '@angular/fire/firestore';
 import {Todo} from '../model/todo.model';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class TodoService {
@@ -12,7 +13,13 @@ export class TodoService {
   }
 
   getTodos(): Observable<Todo[]> {
-    return this.firestore.collection<Todo>(this.path).valueChanges();
+    return this.firestore.collection<Todo>(this.path).snapshotChanges().pipe(
+      map(dcaArray => dcaArray.map(dca => {
+        const todo = dca.payload.doc.data();
+        todo.id = dca.payload.doc.id;
+        return todo;
+      }))
+    );
   }
 
   getTodo(id: string): Observable<Todo> {
@@ -24,10 +31,13 @@ export class TodoService {
   }
 
   updateTodo(todo: Todo): Promise<void> {
-    return this.firestore.doc<Todo>(this.path + '/' + todo.id).update(todo);
+    const id = todo.id;
+    delete todo.id;
+    return this.firestore.doc<Todo>(this.path + '/' + id).update(todo);
   }
 
   createTodo(todo: Todo): Promise<DocumentReference> {
+    delete todo.id;
     return this.firestore.collection<Todo>(this.path).add({...todo});
   }
 

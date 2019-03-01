@@ -1,17 +1,10 @@
 <div>
   <h1>Create Todo</h1>
-  <form #todoForm="ngForm">
-    <div>
-      <label for="id">ID</label>
-      <input type="text" id="id" [(ngModel)]="todo.id" name="id" required>
-    </div>
-
+  <form #form="ngForm">
     <div>
       <label for="title">TITLE</label>
       <input type="text" id="title" [(ngModel)]="todo.title" name="title" required="">
     </div>
-
     <button type="submit" (click)="create()">Submit</button>
-
   </form>
 </div>

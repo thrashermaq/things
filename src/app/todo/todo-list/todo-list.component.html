@@ -1,5 +1,6 @@
 <div>
   <p *ngFor="let todo of todo$ | async">
+    {{todo.id}}
     {{todo.title}}
   </p>
 </div>
