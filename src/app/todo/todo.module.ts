@@ -6,9 +6,10 @@ import {TodoService} from './service/todo.service';
 import {TodoListComponent} from './todo-list/todo-list.component';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
 import {FormsModule} from '@angular/forms';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
 
 @NgModule({
-  declarations: [TodoListComponent, TodoCreateComponent],
+  declarations: [TodoListComponent, TodoCreateComponent, TodoEditComponent],
   imports: [
     CommonModule,
     TodoRoutingModule,

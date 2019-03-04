@@ -33,7 +33,7 @@ export class TodoService {
   updateTodo(todo: Todo): Promise<void> {
     const id = todo.id;
     delete todo.id;
-    return this.firestore.doc<Todo>(this.path + '/' + id).update(todo);
+    return this.firestore.doc<Todo>(this.path + '/' + id).update({...todo});
   }
 
   createTodo(todo: Todo): Promise<DocumentReference> {
