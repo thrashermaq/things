@@ -23,7 +23,12 @@ export class TodoService {
   }
 
   getTodo(id: string): Observable<Todo> {
-    return this.firestore.doc<Todo>(this.path + '/' + id).valueChanges();
+    return this.firestore.doc<Todo>(this.path + '/' + id).valueChanges().pipe(
+      map(todo => {
+        todo.id = id;
+        return todo;
+      })
+    );
   }
 
   deleteTodo(id: string): Promise<void> {

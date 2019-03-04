@@ -1,9 +1,9 @@
-<div>
+<div *ngIf="todo">
   <h1>Edit Todo</h1>
   <form #form="ngForm" autocomplete="off">
     <div>
       <label for="title">TITLE</label>
-      <input type="text" id="title" [(ngModel)]="todo.title" name="title" required="">
+      <input type="text" id="title" [(ngModel)]="todo.title" name="title" placeholder="title" required>
     </div>
     <button type="submit" (click)="update()">Edit</button>
   </form>

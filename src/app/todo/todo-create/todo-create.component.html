@@ -3,7 +3,7 @@
   <form #form="ngForm" autocomplete="off">
     <div>
       <label for="title">TITLE</label>
-      <input type="text" id="title" [(ngModel)]="todo.title" name="title" required="">
+      <input type="text" id="title" [(ngModel)]="todo.title" name="title" required>
     </div>
     <button type="submit" (click)="create()">Submit</button>
   </form>

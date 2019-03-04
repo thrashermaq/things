@@ -3,6 +3,6 @@
     {{todo.id}}
     {{todo.title}}
     <button type="button" (click)="deleteTodo(todo.id)">delete</button>
-    <app-todo-edit [todo]="todo"></app-todo-edit>
+    <button routerLink="/todo/edit/{{todo.id}}">edit</button>
   </p>
 </div>
