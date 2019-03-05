@@ -10,7 +10,7 @@
       <input type="password" id="password" [(ngModel)]="mailCredentials.password" name="password" required>
     </div>
     <button type="submit" (click)="login()" [disabled]="!mailCredentials.email || !mailCredentials.password">Login</button>
-    <button (click)="logout()" *ngIf="authService.user | async">
+    <button (click)="logout()" *ngIf="user | async">
       Logout
     </button>
   </form>

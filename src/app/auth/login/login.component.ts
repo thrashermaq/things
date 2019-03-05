@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../service/auth.service';
 import {MailCredentials} from '../model/mail-credentials.model';
+import {Observable} from 'rxjs';
+import {User} from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,10 @@ import {MailCredentials} from '../model/mail-credentials.model';
 export class LoginComponent {
 
   mailCredentials: MailCredentials = new MailCredentials();
+  user: Observable<User>;
 
   constructor(private authService: AuthService) {
+    this.user = this.authService.user;
   }
 
   login(): void {
