@@ -1,0 +1,14 @@
+<div>
+  <h1>Registrieren</h1>
+  <form #form="ngForm" autocomplete="off">
+    <div>
+      <label for="mail">Mail</label>
+      <input type="email" id="mail" [(ngModel)]="mailCredentials.email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Passwort</label>
+      <input type="password" id="password" [(ngModel)]="mailCredentials.password" name="password" required>
+    </div>
+    <button type="submit" (click)="signUp()" [disabled]="!mailCredentials.email || !mailCredentials.password">Registrieren</button>
+  </form>
+</div>
