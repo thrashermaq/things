@@ -6,6 +6,8 @@ import {AppComponent} from './app.component';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {FirestoreSettingsToken} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,10 @@ import {FirestoreSettingsToken} from '@angular/fire/firestore';
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]

@@ -5,7 +5,9 @@ import {User} from 'firebase';
 import {MailCredentials} from '../model/mail-credentials.model';
 import UserCredential = firebase.auth.UserCredential;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
 
   user: Observable<User>;
