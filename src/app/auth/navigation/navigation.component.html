@@ -1,0 +1,5 @@
+<button *ngIf="user | async" routerLink="/todo">TODO</button>
+<button routerLink="/login">login</button>
+<button *ngIf="user | async" routerLink="/todo/create">Create</button>
+<button (click)="logout()" *ngIf="user | async">Logout</button>
+<button routerLink="">Home</button>

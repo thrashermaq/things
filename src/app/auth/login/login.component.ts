@@ -22,8 +22,4 @@ export class LoginComponent {
     this.authService.emailLogin(this.mailCredentials);
   }
 
-  logout(): void {
-    this.authService.logout().then(() => console.log('logged out'));
-  }
-
 }
